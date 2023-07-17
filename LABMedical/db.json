@@ -2,8 +2,21 @@
   "usuarios": [
     {
       "id": 1,
+      "name": "William",
       "email": "will@will.com",
       "password": "12345678"
+    },
+    {
+      "name": "teste",
+      "email": "teste@test.com",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 3
     }
   ],
   "pacientes": [

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const URL_API = 'http://localhost:3000'
 
 export async function loginApi(email, password) {
@@ -6,4 +8,14 @@ export async function loginApi(email, password) {
     const usuario = usuarios.find(usuario => usuario.email === email && usuario.password === password)
 
     return usuario
+}
+
+export const cadastrarUsuario = async (usuario) => {
+    try {
+        const response = await axios.post(`${URL_API}/usuarios`, usuario);
+        return response.data;
+    } catch (error) {
+        console.error('Erro ao cadastrar usuário: ', error);
+        throw error;
+    }
 }
