@@ -1,0 +1,30 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "email": "will@will.com",
+      "password": "12345678"
+    }
+  ],
+  "pacientes": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "medicos": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "enfermeiros": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ]
+}
