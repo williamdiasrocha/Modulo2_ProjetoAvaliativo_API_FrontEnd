@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { loginApi } from "../../Services/web.js";
 import { AuthContext } from "../../Context/AuthContext";
 import CriarContaModal from "../../Components/OthersComponents/Modal/CriarContaModal";
+import { Alert } from "react-bootstrap";
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -11,6 +12,8 @@ function Login() {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
   const [errorForm, setErrorForm] = useState(false);
+
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     if (errorForm) {
@@ -37,6 +40,11 @@ function Login() {
 
     login(response);
     navigate("/home");
+  };
+
+  const handleForgotPassword = ()=> {
+    setShowAlert(true);
+    event.preventDefault()
   };
 
   return (
@@ -93,11 +101,18 @@ function Login() {
             Entrar
           </button>
           <br/>
-          <a href="" className="mt-2" style={{ fontSize: "13px" }}>
+          <a href="" className="mt-2" style={{ fontSize: "13px" }} onClick={handleForgotPassword}>
             Esqueceu sua Senha?
           </a>
           </div>
+          {showAlert && (
+          <Alert variant="warning" onClose={() => setShowAlert(false)} dismissible>
+            Funcionalidade em construção
+          </Alert>
+        )}
         </form>
+
+        
         <footer className="text-end" style={{ paddingTop: '100px', justifyContent: 'flex-end' }}>
           <img src="../Login/png/heart.svg" alt="Logo" style={{ fill: "black" }} />
           <h6>LABMedical</h6>
