@@ -1,6 +1,5 @@
 import CardInfo from "../../Components/HomeComponents/CardInfo/CardInfo";
 
-import TablePacients from "../../Components/HomeComponents/TablePacients/TablePacients";
 import pacientesSvg from '../../Components/HomeComponents/CardInfo/svg/pacientesSvg.svg';
 import consultasSvg from '../../Components/HomeComponents/CardInfo/svg/consultasSvg.svg';
 import examesSvg from '../../Components/HomeComponents/CardInfo/svg/examesSvg.svg';
