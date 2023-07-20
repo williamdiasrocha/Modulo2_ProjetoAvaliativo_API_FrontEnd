@@ -4,6 +4,7 @@ import { loginApi } from "../../Services/web.js";
 import { AuthContext } from "../../Context/AuthContext";
 import CriarContaModal from "../../Components/OthersComponents/Modal/CriarContaModal";
 import { Alert } from "react-bootstrap";
+import './Login.css'
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -47,13 +48,22 @@ function Login() {
     event.preventDefault()
   };
 
+
+  const handleLogin = () => {
+    const usuario = {
+      id: 1,
+      nome: 'Nome do Usuário',
+      foto: '',
+    }
+    login(usuario)
+  }
+
   return (
-    <div className="container row" style={{ marginLeft: "-100px", paddingLeft: "130px" }}>
-      <div className="col-7" style={{ width: "494px", marginLeft: "0px" }}>
-        <img
+    <div className="container row" >
+      <div className="col-7">
+        <img className="img-login"
           src="https://cdni.iconscout.com/illustration/premium/thumb/login-page-4468581-3783954.png"
           alt="Pagina de Login"
-          style={{ height: "600px", marginLeft: "-220px", marginTop: '10px' }}
         />
       </div>
       <div

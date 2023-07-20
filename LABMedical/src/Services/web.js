@@ -19,3 +19,4 @@ export const cadastrarUsuario = async (usuario) => {
         throw error;
     }
 }
+

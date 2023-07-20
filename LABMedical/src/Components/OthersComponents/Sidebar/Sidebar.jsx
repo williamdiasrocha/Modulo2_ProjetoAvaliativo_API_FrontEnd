@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../Context/AuthContext";
 import Button from 'react-bootstrap/Button';
 import inicio from './svg/inicio.svg'
+import { ImHome, ImCross, ImClipboard, ImPlus } from "react-icons/im";
 
 
 function Sidebar() {
@@ -34,10 +35,8 @@ function Sidebar() {
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <a href="/home" className="nav-link active" aria-current="page">
-            <svg className="bi pe-none me-2" width="16" height="16">
             <use xlinkHref={inicio} />
-            </svg>
-            Início
+            <ImHome/> Início
           </a>
         </li>
         <li>
@@ -49,7 +48,7 @@ function Sidebar() {
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#speedometer2" />
             </svg>
-            Sair
+            <ImCross /> Sair
           </a>
         </li>
 
@@ -59,7 +58,7 @@ function Sidebar() {
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#table" />
             </svg>
-            Cadastrar
+            <ImPlus/> Cadastrar Paciente
           </a>
         </li>
         <li>
@@ -67,7 +66,7 @@ function Sidebar() {
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#grid" />
             </svg>
-            Listar Prontuário
+            <ImClipboard /> Listar Prontuário
           </a>
         </li>
         <span className="span">Exames</span>
@@ -76,7 +75,7 @@ function Sidebar() {
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#people-circle" />
             </svg>
-            Cadastrar Consulta
+            <ImPlus/> Cadastrar Consulta
           </a>
         </li>
         <li>
@@ -84,7 +83,7 @@ function Sidebar() {
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#people-circle" />
             </svg>
-            Cadastrar Exame
+            <ImClipboard/> Cadastrar Exame
           </a>
         </li>
       </ul>
