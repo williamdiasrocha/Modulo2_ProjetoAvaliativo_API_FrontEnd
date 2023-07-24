@@ -1,9 +1,38 @@
 #navbarApi {
   background-color: #0d6efd;
   color: white;
-  width: 70vw;
-  height: 40px;
+  border-radius: 8px;
+  margin-right: 0px;
+  padding: 5pxpx;
+  display: flex;
 }
-#spanNav{
-    margin-top: -7px;
+#spanNav {
+  margin: 0px;
+  font-size: large;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.user-info {
+  display: flex;
+  align-items: center; 
+}
+
+.user-name {
+  margin-right: 10px; 
+  font-weight: 500;
+}
+
+.user-photo {
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 11px;
+}
+.btn-sair {
+  border-radius: 50px !important;
 }

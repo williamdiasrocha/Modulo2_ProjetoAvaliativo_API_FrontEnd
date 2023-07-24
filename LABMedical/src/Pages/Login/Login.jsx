@@ -1,9 +1,10 @@
-import "./Login.css";
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginApi } from "../../Services/web.js";
 import { AuthContext } from "../../Context/AuthContext";
-import "../Login/png/heart.svg";
+import CriarContaModal from "../../Components/OthersComponents/Modal/CriarContaModal";
+import { Alert } from "react-bootstrap";
+import "./Login.css";
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -12,6 +13,8 @@ function Login() {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
   const [errorForm, setErrorForm] = useState(false);
+
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     if (errorForm) {
@@ -40,42 +43,34 @@ function Login() {
     navigate("/home");
   };
 
+  const handleForgotPassword = () => {
+    setShowAlert(true);
+    event.preventDefault();
+  };
+
+  const handleLogin = () => {
+    const usuario = {
+      id: 1,
+      nome: "Nome do Usuário",
+      foto: "",
+    };
+    login(usuario);
+  };
+
   return (
-    <div
-      className="container row"
-      style={{ marginLeft:'-100px', paddingLeft: '130px' }}
-    >
-      <div className="col-7" style={{ width: "494px", marginLeft:'0px' }}>
+    <div className="container row" style={{ height: "100vh" }}>
+      <div className="col-7">
         <img
+          className="img-login"
           src="https://cdni.iconscout.com/illustration/premium/thumb/login-page-4468581-3783954.png"
           alt="Pagina de Login"
-          style={{ height: "600px", marginLeft: "-220px", marginTop:'10px' }}
         />
       </div>
-      <div
-        className="col-5"
-        style={{
-          borderLeft: "2px solid blue",
-          marginLeft: '-70px',
-          paddingLeft: "40px",
-          paddingRight: '20px',
-          height:'90vh',
-          width: '46vh',
-          justifyContent: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'normal'
-        }}
-      >
-        <header className="text-end" style={{ alignItems: 'flex-end', paddingBottom: '70px' }}>
-          <a href="" style={{ paddingRight: "15px", fontSize: "13px" }}>
-            Não possui uma conta?
-          </a>
-          <button className="btn btn-outline-primary">Criar Conta</button>
-        </header>
+      <div className="col-5 login_card">
+        <CriarContaModal />
 
         <h1 className="text-start">Login</h1>
-        <form onSubmit={handleSubmit} style={{ maxWidth: "320px" }}>
+        <form onSubmit={handleSubmit} className="form" style={{ maxWidth: "320px" }}>
           <label className="form-label mb-0 mt-2 text-start">E-mail</label>
           <input
             required
@@ -97,17 +92,45 @@ function Login() {
             minLength="6"
           />
           {errorForm && <span>E-mail e/ou senha inválidos</span>}
-          <button type="submit" className="btn btn-primary mt-5">
-            Entrar
-          </button>
-
-          <a href="" className="mt-2" style={{ fontSize: "13px" }}>
-            Esqueceu sua Senha?
-          </a>
+          <div style={{ marginTop: "30px" }}>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              style={{ width: "290px" }}
+            >
+              Entrar
+            </button>
+            <br />
+            <a
+              href=""
+              className="mt-2"
+              style={{ fontSize: "13px" }}
+              onClick={handleForgotPassword}
+            >
+              Esqueceu sua Senha?
+            </a>
+          </div>
+          {showAlert && (
+            <Alert
+              variant="warning"
+              onClose={() => setShowAlert(false)}
+              dismissible
+            >
+              Funcionalidade em construção
+            </Alert>
+          )}
         </form>
-        <footer className="text-end" style={{ paddingTop:'100px', justifyContent: 'flex-end' }}>
-            <img src="../Login/png/heart.svg" alt="Logo" style={{ fill: "black" }} />
-            <h6>LABMedical</h6>
+
+        <footer
+          className="text-end"
+          style={{ paddingTop: "100px", justifyContent: "flex-end" }}
+        >
+          <img
+            src="../Login/png/heart.svg"
+            alt="Logo"
+            style={{ fill: "black" }}
+          />
+          <h6>LABMedical</h6>
         </footer>
       </div>
     </div>
