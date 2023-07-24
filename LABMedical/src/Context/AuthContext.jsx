@@ -1,7 +1,20 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { createContext } from "react"
 
+const AppContext = createContext();
 
+export function useAppContext() {
+    return useContext(AppContext);
+}
+
+export function AppContextProvider({ children }) {
+    const [paginaAtual, setPaginaAtual] = useState("/home")
+    return (
+        <AppContext.Provider value={{ paginaAtual, setPaginaAtual }}>
+        {children}
+        </AppContext.Provider>
+    )
+}
 
 export const AuthContext = createContext()
 

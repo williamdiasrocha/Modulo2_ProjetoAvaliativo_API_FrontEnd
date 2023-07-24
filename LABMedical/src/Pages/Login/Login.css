@@ -6,6 +6,10 @@ body {
 form {
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 input {
@@ -14,5 +18,24 @@ input {
 }
 .img-login {
     width: 43vw;
-    margin-left: -15vw;
+    margin-left: auto;
+}
+
+.login_card {
+    
+        border-left: 2px solid blue;
+        margin-left: -70px;
+        padding-left: 40px;
+        padding-right: 20px;
+        
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        
+      
+}
+.form {
+    height: 50vh;
+    width: 60vh;
+
 }
