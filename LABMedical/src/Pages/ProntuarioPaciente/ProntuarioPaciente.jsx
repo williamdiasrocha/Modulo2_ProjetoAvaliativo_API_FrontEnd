@@ -44,54 +44,78 @@ function ProntuarioPaciente() {
           </div>
         )}
 
-        <div className="col-12 text-end mt-4">
+        <div className="col-12 text-end mt-3">
           <div className="row">
             <div className="col-2">
               <h1>1</h1>
             </div>
-            <div className="col-10 text-start">
+            <div className="col-10 text-start mt-2">
               <h3>Consultas</h3>
               <ul>
                 {consultas.map((consulta) => (
-                  <li key={consulta.id} className="mt-4">
-                    <h5>Motivo: {consulta.motivo}</h5>
-                    <p>Data e Hora: {consulta.dataHora}</p>
-                    <button onClick={() => handleEditarConsulta(consulta)}>
-                      Editar
-                    </button>
-                    <button onClick={() => handleDeletarConsulta(consulta.id)}>
-                      Deletar
-                    </button>
-                  </li>
+                  <div className="row">
+                    <div className="col-10">
+                      <li key={consulta.id} className="mt-4">
+                        <h5>Motivo: {consulta.motivo}</h5>
+                        <p>Data e Hora: {consulta.dataHora}</p>
+                      </li>
+                    </div>
+                    <div className="col-2">
+                      <button
+                        className="btn btn-primary "
+                        onClick={() => handleEditarConsulta(consulta)}
+                      >
+                        Editar
+                      </button>
+                      <button
+                        className="btn btn-danger mt-1"
+                        onClick={() => handleDeletarConsulta(consulta.id)}
+                      >
+                        Deletar
+                      </button>
+                    </div>
+                  </div>
                 ))}
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="col-12 text-end mt-3">
+        <div className="col-12 text-end mt-1">
           <div className="row">
             <div className="col-2">
-            <h1>2</h1>
+              <h1>2</h1>
             </div>
             <div className="col-10 text-start">
-            <h3>Exames</h3>
-            <ul>
-              {exames.map((exame) => (
-                <li key={exame.id} className="mt-4">
-                  <h5>Nome do Exame: {exame.nomeExame}</h5>
-                  <p className="mb-0">Laboratório: {exame.laboratorio}</p>
-                  <p className="mb-0">Data e Hora: {exame.dataHora}</p>
-                  <p>URL do Documento: {exame.urlDocumento}</p>
-                  <button onClick={() => handleEditarExame(exame)}>
-                    Editar
-                  </button>
-                  <button onClick={() => handleDeletarExame(exame.id)}>
-                    Deletar
-                  </button>
-                </li>
-              ))}
-            </ul>
+              <h3>Exames</h3>
+              <ul>
+                {exames.map((exame) => (
+                  <div className="row">
+                    <div className="col-10">
+                      <li key={exame.id} className="mt-2">
+                        <h5>Nome do Exame: {exame.nomeExame}</h5>
+                        <p className="mb-0">Laboratório: {exame.laboratorio}</p>
+                        <p className="mb-0">Data e Hora: {exame.dataHora}</p>
+                        <p>URL do Documento: {exame.urlDocumento}</p>
+                      </li>
+                    </div>
+                    <div className="col-2">
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => handleEditarExame(exame)}
+                      >
+                        Editar
+                      </button>
+                      <button
+                        className="btn btn-danger mt-1"
+                        onClick={() => handleDeletarExame(exame.id)}
+                      >
+                        Deletar
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
