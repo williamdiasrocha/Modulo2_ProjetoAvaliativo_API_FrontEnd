@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
-const PacienteSearch = ({ onPacienteSelect }) => {
+const PacienteSearch = ({ searchTerm, onSearchChange, onPacienteSelect, onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = async () => {
@@ -53,7 +53,7 @@ const PacienteSearch = ({ onPacienteSelect }) => {
       <div className="col-3">
         <Button
           className="btn btn-primary w-100 text-center"
-          onClick={handleSearch}
+          onClick={() => {handleSearch(); onPacienteSelect(null)}}
         >
           Buscar
         </Button>

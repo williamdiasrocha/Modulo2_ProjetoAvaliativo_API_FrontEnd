@@ -1,3 +1,5 @@
+// ListagemProntuario.jsx
+
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext.jsx";
 import Toolbar from "../../Components/OthersComponents/Toolbar/Toolbar.jsx";
@@ -27,12 +29,24 @@ function ListagemProntuario() {
     setSearchTerm(event.target.value);
   };
 
-  const handleSearchClick = () => {
-    const pacienteEncontrado = pacientes.find(
-      (paciente) => paciente.nome.toLowerCase() === searchTerm.toLowerCase()
-    );
-
+  const handlePacienteSelect = (pacienteEncontrado) => {
     setPacienteSelecionado(pacienteEncontrado);
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim() === "") {
+      setPacienteSelecionado(null);
+    } else {
+      const pacienteSelecionado = pacientes.find(
+        (paciente) => paciente.nome.toLowerCase() === searchTerm.toLowerCase()
+      );
+
+      if (pacienteSelecionado) {
+        setPacienteSelecionado(pacienteSelecionado);
+      } else {
+        alert("Paciente não encontrado.");
+      }
+    }
   };
 
   const renderContent = () => {
@@ -46,34 +60,33 @@ function ListagemProntuario() {
         <PacienteSearch
           searchTerm={searchTerm}
           onSearchChange={handleSearchChange}
-          onSearchClick={handleSearchClick}
+          onPacienteSelect={handlePacienteSelect}
+          onSearch={handleSearch} // Pass the handleSearch function to PacienteSearch
         />
-
-        <div className="row mb-0 cabecalho text-center">
-          <div className="col-4 mt-4">
-            <h5>REGISTRO</h5>
-          </div>
-          <div className="col-3 mt-4">
-            <h5>NOME DO PACIENTE</h5>
-          </div>
-          <div className="col-3 mt-4">
-            <h5>CONVÊNIO</h5>
-          </div>
-          <div className="col-1 mt-4"></div>
-        </div>
-
-        <div className="row container-fluid mt-0">
-          {pacienteSelecionado ? (
-            <PacienteCardLista
-              key={pacienteSelecionado.id}
-              paciente={pacienteSelecionado}
-            />
-          ) : (
-            pacientes.map((paciente) => (
-              <PacienteCardLista key={paciente.id} paciente={paciente} />
-            ))
-          )}
-        </div>
+        {pacienteSelecionado ? (
+          <>
+            <div className="row mb-0 cabecalho text-center">
+              {/* Rest of your code */}
+            </div>
+            <div className="row container-fluid mt-0">
+              <PacienteCardLista
+                key={pacienteSelecionado.id}
+                paciente={pacienteSelecionado}
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="row mb-0 cabecalho text-center">
+              {/* Rest of your code */}
+            </div>
+            <div className="row container-fluid mt-0">
+              {pacientes.map((paciente) => (
+                <PacienteCardLista key={paciente.id} paciente={paciente} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     );
   };
