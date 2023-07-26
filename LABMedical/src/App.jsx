@@ -16,7 +16,7 @@ import CadastrarExame from "./Pages/CadastrarExame/CadastrarExame";
 import ListagemProntuarios from "./Pages/ListagemProntuarios/ListagemProntuarios";
 import ProntuarioPaciente from "./Pages/ProntuarioPaciente/ProntuarioPaciente";
 import Sidebar from "./Components/OthersComponents/Sidebar/Sidebar";
-import { useLocation } from "react-router-dom";
+
 
 
 
@@ -80,7 +80,7 @@ function App() {
             }
           />
           <Route
-            path="/prontuariopaciente"
+            path="/prontuariopaciente/:id"
             element={
               isLoggedIn ? <ProntuarioPaciente /> : <Navigate to="/login" />
             }

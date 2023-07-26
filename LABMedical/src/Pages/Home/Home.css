@@ -1,11 +1,7 @@
-body {
-    margin: 0px;
-    padding: 0px;
-}
+
 .lista-pacientes {
     display: flex;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-    gap: 0 51px ;
+    justify-content:space-between;
+    
     
 }

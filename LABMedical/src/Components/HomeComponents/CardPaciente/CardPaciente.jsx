@@ -30,7 +30,7 @@ function CardPaciente({ nome, dataNascimento, telefone, plano, onPacienteSelect 
       ) : (
         <span className="plano_paciente">{plano}</span>
       )}
-      <Link to="#" className="mt-3 mb-0">Ver Mais</Link>
+      <Link to="/prontuariopaciente/:id" className="mt-3 mb-0">Ver Mais</Link>
     </div>
   );
 }

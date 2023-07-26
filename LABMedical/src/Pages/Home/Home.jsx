@@ -61,9 +61,9 @@ function Home() {
   };
 
   return (
-    <div className="col-9">
+    <div className="col-9 container-fluid">
       {isLoggedIn && (
-        <Toolbar pageTitle="Estatísticas do Sistema" usuarios={usuarios} />
+        <Toolbar pageTitle="ESTATÍSTICAS DO SISTEMA" usuarios={usuarios} />
       )}
 
       <div className="row mt-3">
@@ -72,7 +72,7 @@ function Home() {
             titulo={"Pacientes"}
             svg={pacientesSvg}
             fetchData={`${URL_API}/pacientes`}
-            valor={(data) => data.length}
+            valor={() => pacientes.length}
           />
         </div>
 
@@ -81,7 +81,7 @@ function Home() {
             titulo={"Consultas"}
             svg={consultasSvg}
             fetchData={`${URL_API}/consultas`}
-            valor={(data) => data.length}
+            valor={() => pacientes.reduce((total, paciente) => total + paciente.consultas.length, 0)}
           />
         </div>
 
@@ -90,7 +90,7 @@ function Home() {
             titulo={"Exames"}
             svg={examesSvg}
             fetchData={`${URL_API}/exames`}
-            valor={(data) => data.length}
+            valor={() => pacientes.reduce((total, paciente) => total + paciente.exames.length, 0)}
           />
         </div>
       </div>

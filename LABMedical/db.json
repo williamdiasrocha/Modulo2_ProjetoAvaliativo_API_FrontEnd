@@ -22,7 +22,7 @@
   "pacientes": [
     {
       "id": 1,
-      "nome": "Erci lopes Dias",
+      "nome": "Erci Lopes Dias",
       "genero": "feminino",
       "dataNascimento": "1991-01-31",
       "cpf": "011.920.560-27",
@@ -30,21 +30,49 @@
       "estadoCivil": "solteiro",
       "tel": "(48) 9 8853-5179",
       "email": "uill_pf@hotmail.com",
-      "naturalidade": "PassoFundo",
+      "naturalidade": "Passo Fundo",
       "contatoEmergencia": "",
       "alergias": "",
       "cuidadosEspecificos": "",
       "plano": "Sem Plano",
       "numeroConvenio": "",
       "validadeConvenio": "",
-      "cep": "88058343",
+      "cep": "88058-343",
       "cidade": "Florianópolis",
       "estado": "SC",
       "logradouro": "Servidão Reginaldo José Sagáz",
       "numero": "281",
       "complemento": "04",
       "bairro": "Ingleses do Rio Vermelho",
-      "pontoReferencia": "MM"
+      "pontoReferencia": "MM",
+      "consultas": [
+        {
+          "id": 1,
+          "motivo": "Consulta de rotina",
+          "dataHora": "2023-07-25T14:30:00"
+        },
+        {
+          "id": 2,
+          "motivo": "Dor de cabeça",
+          "dataHora": "2023-07-23T10:00:00"
+        }
+      ],
+      "exames": [
+        {
+          "id": 1,
+          "nomeExame": "Hemograma",
+          "laboratorio": "Laboratório XPTO",
+          "dataHora": "2023-07-20T08:00:00",
+          "urlDocumento": "https://example.com/hemograma.pdf"
+        },
+        {
+          "id": 2,
+          "nomeExame": "Raio-X do tórax",
+          "laboratorio": "Laboratório ABC",
+          "dataHora": "2023-07-22T11:30:00",
+          "urlDocumento": "https://example.com/raio-x.pdf"
+        }
+      ]
     },
     {
       "id": 2,
@@ -70,7 +98,23 @@
       "numero": "987",
       "complemento": "Casa 2",
       "bairro": "Copacabana",
-      "pontoReferencia": "Próximo à Praia"
+      "pontoReferencia": "Próximo à Praia",
+      "consultas": [
+        {
+          "id": 3,
+          "motivo": "Consulta de rotina",
+          "dataHora": "2023-07-24T09:00:00"
+        }
+      ],
+      "exames": [
+        {
+          "id": 3,
+          "nomeExame": "Ultrassonografia",
+          "laboratorio": "Laboratório XYZ",
+          "dataHora": "2023-07-18T15:00:00",
+          "urlDocumento": "https://example.com/ultrassonografia.pdf"
+        }
+      ]
     },
     {
       "id": 3,
@@ -96,7 +140,9 @@
       "numero": "789",
       "complemento": "Apto 101",
       "bairro": "Centro",
-      "pontoReferencia": "Próximo ao Teatro"
+      "pontoReferencia": "Próximo ao Teatro",
+      "consultas": [],
+      "exames": []
     },
     {
       "id": 4,
@@ -122,7 +168,17 @@
       "numero": "456",
       "complemento": "Sala 203",
       "bairro": "Jardim Botânico",
-      "pontoReferencia": "Próximo ao Parque"
+      "pontoReferencia": "Próximo ao Parque",
+      "consultas": [],
+      "exames": [
+        {
+          "id": 4,
+          "nomeExame": "Eletrocardiograma",
+          "laboratorio": "Laboratório Cardiotech",
+          "dataHora": "2023-07-23T14:00:00",
+          "urlDocumento": "https://example.com/eletrocardiograma.pdf"
+        }
+      ]
     },
     {
       "id": 5,
@@ -132,7 +188,7 @@
       "cpf": "333.444.555-66",
       "rgOrgaoExpedidor": "SSP-BA",
       "estadoCivil": "solteiro",
-      "tel": "(71) 9 91234-5678",
+      "tel": "(71) 9 9123-45678",
       "email": "joao.santos@example.com",
       "naturalidade": "Salvador",
       "contatoEmergencia": "(71) 9 6666-7777",
@@ -148,7 +204,23 @@
       "numero": "987",
       "complemento": "Apto 102",
       "bairro": "Pituba",
-      "pontoReferencia": "Próximo à Praia"
+      "pontoReferencia": "Próximo à Praia",
+      "consultas": [
+        {
+          "id": 5,
+          "motivo": "Dor de garganta",
+          "dataHora": "2023-07-25T09:30:00"
+        }
+      ],
+      "exames": [
+        {
+          "id": 5,
+          "nomeExame": "Hemoglobina glicada",
+          "laboratorio": "Laboratório Saúde Total",
+          "dataHora": "2023-07-21T16:30:00",
+          "urlDocumento": "https://example.com/hemoglobina-glicada.pdf"
+        }
+      ]
     },
     {
       "id": 6,
@@ -158,7 +230,7 @@
       "cpf": "444.555.666-77",
       "rgOrgaoExpedidor": "SSP-SE",
       "estadoCivil": "casada",
-      "tel": "(79) 9 91234-5678",
+      "tel": "(79) 9 9123-4567",
       "email": "ana.souza@example.com",
       "naturalidade": "Aracaju",
       "contatoEmergencia": "(79) 9 7777-8888",
@@ -174,7 +246,9 @@
       "numero": "789",
       "complemento": "Apto 301",
       "bairro": "Jardins",
-      "pontoReferencia": "Próximo ao Parque"
+      "pontoReferencia": "Próximo ao Parque",
+      "consultas": [],
+      "exames": []
     },
     {
       "id": 7,
@@ -184,7 +258,7 @@
       "cpf": "555.666.777-88",
       "rgOrgaoExpedidor": "SSP-CE",
       "estadoCivil": "casado",
-      "tel": "(85) 9 91234-5678",
+      "tel": "(85) 9 9123-4567",
       "email": "pedro.rocha@example.com",
       "naturalidade": "Fortaleza",
       "contatoEmergencia": "(85) 9 8888-7777",
@@ -200,7 +274,15 @@
       "numero": "987",
       "complemento": "Casa 1",
       "bairro": "Aldeota",
-      "pontoReferencia": "Próximo ao Parque"
+      "pontoReferencia": "Próximo ao Parque",
+      "consultas": [
+        {
+          "id": 6,
+          "motivo": "Acompanhamento de hipertensão",
+          "dataHora": "2023-07-22T16:00:00"
+        }
+      ],
+      "exames": []
     },
     {
       "id": 8,
@@ -210,7 +292,7 @@
       "cpf": "666.777.888-99",
       "rgOrgaoExpedidor": "SSP-DF",
       "estadoCivil": "solteira",
-      "tel": "(61) 9 91234-5678",
+      "tel": "(61) 9 9123-4567",
       "email": "carla.oliveira@example.com",
       "naturalidade": "Brasília",
       "contatoEmergencia": "(61) 9 9999-8888",
@@ -226,7 +308,15 @@
       "numero": "789",
       "complemento": "Apto 501",
       "bairro": "Asa Sul",
-      "pontoReferencia": "Próximo ao Parque"
+      "pontoReferencia": "Próximo ao Parque",
+      "consultas": [
+        {
+          "id": 7,
+          "motivo": "Alergia na pele",
+          "dataHora": "2023-07-20T14:30:00"
+        }
+      ],
+      "exames": []
     },
     {
       "id": 9,
@@ -236,7 +326,7 @@
       "cpf": "777.888.999-00",
       "rgOrgaoExpedidor": "SSP-PR",
       "estadoCivil": "viúva",
-      "tel": "(41) 9 91234-5678",
+      "tel": "(41) 9 9123-4567",
       "email": "mirta.clemente@example.com",
       "naturalidade": "Curitiba",
       "contatoEmergencia": "(41) 9 7777-8888",
@@ -252,7 +342,15 @@
       "numero": "987",
       "complemento": "Casa 3",
       "bairro": "Batel",
-      "pontoReferencia": "Próximo ao Parque"
+      "pontoReferencia": "Próximo ao Parque",
+      "consultas": [
+        {
+          "id": 8,
+          "motivo": "Consulta de rotina",
+          "dataHora": "2023-07-24T08:00:00"
+        }
+      ],
+      "exames": []
     },
     {
       "id": 10,
@@ -262,7 +360,7 @@
       "cpf": "888.999.000-11",
       "rgOrgaoExpedidor": "SSP-GO",
       "estadoCivil": "casado",
-      "tel": "(62) 9 91234-5678",
+      "tel": "(62) 9 9123-4567",
       "email": "lucas.ferreira@example.com",
       "naturalidade": "Goiânia",
       "contatoEmergencia": "(62) 9 8888-7777",
@@ -278,7 +376,197 @@
       "numero": "789",
       "complemento": "Apto 201",
       "bairro": "Setor Oeste",
-      "pontoReferencia": "Próximo ao Parque"
+      "pontoReferencia": "Próximo ao Parque",
+      "consultas": [
+        {
+          "id": 9,
+          "motivo": "Dor nas costas",
+          "dataHora": "2023-07-22T10:30:00"
+        }
+      ],
+      "exames": [
+        {
+          "id": 6,
+          "nomeExame": "Ressonância Magnética",
+          "laboratorio": "Laboratório Imagix",
+          "dataHora": "2023-07-20T09:00:00",
+          "urlDocumento": "https://example.com/ressonancia-magnetica.pdf"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "nome": "Isabela Castro",
+      "genero": "feminino",
+      "dataNascimento": "1990-09-08",
+      "cpf": "222.333.444-55",
+      "rgOrgaoExpedidor": "SSP-SP",
+      "estadoCivil": "solteira",
+      "tel": "(11) 9 9123-4567",
+      "email": "isabela.castro@example.com",
+      "naturalidade": "São Paulo",
+      "contatoEmergencia": "(11) 9 7777-8888",
+      "alergias": "Nenhuma alergia conhecida",
+      "cuidadosEspecificos": "Nenhum cuidado específico",
+      "plano": "Amil",
+      "numeroConvenio": "777",
+      "validadeConvenio": "2023-11-30",
+      "cep": "04000-000",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "logradouro": "Rua das Orquídeas",
+      "numero": "987",
+      "complemento": "Apto 1001",
+      "bairro": "Vila Mariana",
+      "pontoReferencia": "Próximo ao Parque",
+      "consultas": [
+        {
+          "id": 10,
+          "motivo": "Dor no joelho",
+          "dataHora": "2023-07-25T11:00:00"
+        }
+      ],
+      "exames": [
+        {
+          "id": 7,
+          "nomeExame": "Ultrassonografia abdominal",
+          "laboratorio": "Laboratório Diagnóstico Médico",
+          "dataHora": "2023-07-19T13:30:00",
+          "urlDocumento": "https://example.com/ultrassonografia-abdominal.pdf"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "nome": "Ricardo Souza",
+      "genero": "masculino",
+      "dataNascimento": "1975-03-12",
+      "cpf": "111.222.333-44",
+      "rgOrgaoExpedidor": "SSP-ES",
+      "estadoCivil": "casado",
+      "tel": "(27) 9 9123-4567",
+      "email": "ricardo.souza@example.com",
+      "naturalidade": "Vitória",
+      "contatoEmergencia": "(27) 9 8888-7777",
+      "alergias": "Nenhuma alergia conhecida",
+      "cuidadosEspecificos": "Nenhum cuidado específico",
+      "plano": "Bradesco Saúde",
+      "numeroConvenio": "222",
+      "validadeConvenio": "2023-09-30",
+      "cep": "29000-000",
+      "cidade": "Vitória",
+      "estado": "ES",
+      "logradouro": "Avenida dos Coqueiros",
+      "numero": "789",
+      "complemento": "Apto 501",
+      "bairro": "Praia do Canto",
+      "pontoReferencia": "Próximo à Praia",
+      "consultas": [
+        {
+          "id": 11,
+          "motivo": "Consulta de rotina",
+          "dataHora": "2023-07-24T14:00:00"
+        }
+      ],
+      "exames": []
+    },
+    {
+      "id": 13,
+      "nome": "Camila Ribeiro",
+      "genero": "feminino",
+      "dataNascimento": "1998-11-17",
+      "cpf": "333.444.555-66",
+      "rgOrgaoExpedidor": "SSP-AM",
+      "estadoCivil": "solteira",
+      "tel": "(92) 9 9123-4567",
+      "email": "camila.ribeiro@example.com",
+      "naturalidade": "Manaus",
+      "contatoEmergencia": "(92) 9 7777-8888",
+      "alergias": "Nenhuma alergia conhecida",
+      "cuidadosEspecificos": "Nenhum cuidado específico",
+      "plano": "Unimed",
+      "numeroConvenio": "111",
+      "validadeConvenio": "2023-10-31",
+      "cep": "69000-000",
+      "cidade": "Manaus",
+      "estado": "AM",
+      "logradouro": "Rua das Palmeiras",
+      "numero": "987",
+      "complemento": "Casa 1",
+      "bairro": "Centro",
+      "pontoReferencia": "Próximo à Praia",
+      "consultas": [],
+      "exames": []
+    },
+    {
+      "id": 14,
+      "nome": "Amanda Almeida",
+      "genero": "feminino",
+      "dataNascimento": "1992-02-29",
+      "cpf": "444.555.666-77",
+      "rgOrgaoExpedidor": "SSP-AL",
+      "estadoCivil": "solteira",
+      "tel": "(82) 9 9123-4567",
+      "email": "amanda.almeida@example.com",
+      "naturalidade": "Maceió",
+      "contatoEmergencia": "(82) 9 8888-7777",
+      "alergias": "Nenhuma alergia conhecida",
+      "cuidadosEspecificos": "Nenhum cuidado específico",
+      "plano": "Sem Plano",
+      "numeroConvenio": "",
+      "validadeConvenio": "",
+      "cep": "57000-000",
+      "cidade": "Maceió",
+      "estado": "AL",
+      "logradouro": "Rua dos Cravos",
+      "numero": "789",
+      "complemento": "Casa 2",
+      "bairro": "Centro",
+      "pontoReferencia": "Próximo à Praia",
+      "consultas": [
+        {
+          "id": 12,
+          "motivo": "Dor de ouvido",
+          "dataHora": "2023-07-20T10:00:00"
+        }
+      ],
+      "exames": [
+        {
+          "id": 8,
+          "nomeExame": "Eletroencefalograma",
+          "laboratorio": "Laboratório Neurosaúde",
+          "dataHora": "2023-07-19T09:00:00",
+          "urlDocumento": "https://example.com/eletroencefalograma.pdf"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "nome": "JJ Boninho",
+      "genero": "masculino",
+      "dataNascimento": "1978-11-02",
+      "cpf": "111.222.333-44",
+      "rgOrgaoExpedidor": "SSP-MG",
+      "estadoCivil": "casado",
+      "tel": "(55) 9 9924-7513",
+      "email": "jjboninho@example.com",
+      "naturalidade": "Belo Horizonte",
+      "contatoEmergencia": "(55) 9 8888-8888",
+      "alergias": "Nenhuma alergia conhecida",
+      "cuidadosEspecificos": "Nenhum cuidado específico",
+      "plano": "Clamed",
+      "numeroConvenio": "666",
+      "validadeConvenio": "2025-01-31",
+      "cep": "30100-000",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "logradouro": "Rua dos Artistas",
+      "numero": "789",
+      "complemento": "Apto 101",
+      "bairro": "Centro",
+      "pontoReferencia": "Próximo ao Teatro",
+      "consultas": [],
+      "exames": []
     }
   ],
   "medicos": [
@@ -293,52 +581,6 @@
       "id": 1,
       "body": "some comment",
       "postId": 1
-    }
-  ],
-  "consultas": [
-    {
-      "id": 1,
-      "pacienteId": 1,
-      "data": "2023-07-18",
-      "sintomas": "Febre e dor de cabeça",
-      "diagnostico": "Gripe"
-    },
-    {
-      "id": 2,
-      "pacienteId": 2,
-      "data": "2023-07-19",
-      "sintomas": "Dor abdominal",
-      "diagnostico": "Apendicite"
-    },
-    {
-      "id": 3,
-      "pacienteId": 1,
-      "data": "2023-07-20",
-      "sintomas": "Tosse e falta de ar",
-      "diagnostico": "Bronquite"
-    }
-  ],
-  "exames": [
-    {
-      "id": 1,
-      "pacienteId": 1,
-      "data": "2023-07-18",
-      "tipo": "Hemograma",
-      "resultado": "Normal"
-    },
-    {
-      "id": 2,
-      "pacienteId": 2,
-      "data": "2023-07-19",
-      "tipo": "Raio-X",
-      "resultado": "Apendicite aguda"
-    },
-    {
-      "id": 3,
-      "pacienteId": 1,
-      "data": "2023-07-20",
-      "tipo": "Tomografia",
-      "resultado": "Inflamação nos brônquios"
     }
   ]
 }

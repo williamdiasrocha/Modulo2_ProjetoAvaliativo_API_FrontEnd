@@ -6,15 +6,6 @@ import InputMask from "react-input-mask";
 import './CadastrarPaciente.css'
 
 
-// Função fictícia para simular o cadastro do paciente no servidor
-async function cadastrarPaciente(pacienteData) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ success: true });
-    }, 1000);
-  });
-}
-
 function CadastrarPaciente() {
   const { isLoggedIn } = useContext(AuthContext);
 
@@ -177,14 +168,13 @@ function CadastrarPaciente() {
   };
 
   return (
-    
       
       <div className="col-9">
         {isLoggedIn && (
           <Toolbar pageTitle="CADASTRO DE PACIENTE" usuarios={usuarios} />
         )}
 
-        <div className="container">
+        <div className="container-fluid row">
           <h3 className="text-start mt-2 mb-1">
             Preencha os campos para cadastrar
           </h3>
@@ -196,10 +186,10 @@ function CadastrarPaciente() {
             <div className="col-12 text-end d-flex justify-content-end">
               <h5 className="text-start">Identificação</h5>
               <div className="container-fluid justify-content-end text-align-center">
-              <Button disabled={isEditing} type="button" onClick={handleDeleteClick} className="btn btn-danger btn-delete">
+              <Button disabled={handleEditClick} type="button" onClick={handleDeleteClick} className="btn btn-danger btn-delete">
               Deletar
             </Button>
-            <Button disabled={isEditing} type="submit">
+            <Button disabled={handleEditClick} type="submit">
               Salvar
             </Button>
               </div>
