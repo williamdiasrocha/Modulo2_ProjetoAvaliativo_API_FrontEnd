@@ -182,7 +182,7 @@ function CadastrarPaciente() {
           
           <Form className="text-start" onSubmit={handleSubmit}>
           
-          <header className="container-fluid d-flex row mb-4">
+          <header className="container-fluid d-flex row mb-1">
             <div className="col-12 text-end d-flex justify-content-end">
               <h5 className="text-start">Identificação</h5>
               <div className="container-fluid justify-content-end text-align-center">
@@ -335,7 +335,7 @@ function CadastrarPaciente() {
             </div>
             </div>
 
-            <div className="container-fluid text-start h5margin">
+            <div className="container-fluid text-start h5">
             <h5 className="container-fluid text-start mt-1 ">Convênio</h5>
             </div>
             
@@ -380,7 +380,7 @@ function CadastrarPaciente() {
             </div>
 
             <div className="container-fluid text-start mt-1">
-            <h5 className="container-fluid text-start h5margin">Dados de Endereço</h5></div>
+            <h5 className="container-fluid text-start h5 mt-1">Dados de Endereço</h5></div>
             <div className="row container-fluid">
               <div className="col-4">
               <Form.Label className="mb-0" htmlFor="cep">CEP:</Form.Label>

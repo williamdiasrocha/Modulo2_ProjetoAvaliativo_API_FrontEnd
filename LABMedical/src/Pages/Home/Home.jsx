@@ -116,7 +116,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="row lista-pacientes">
+      <div className="row lista-pacientes card-scroll">
         {pacientes.map((paciente) => (
           <CardPaciente
             className="card_paciente"

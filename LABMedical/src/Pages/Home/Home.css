@@ -5,3 +5,7 @@
     
     
 }
+.card-scroll {
+    height: 428px !important;
+    overflow-y: scroll;
+}

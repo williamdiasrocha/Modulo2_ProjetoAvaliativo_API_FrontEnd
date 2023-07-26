@@ -63,7 +63,7 @@ function ListagemProntuario() {
           <div className="col-1 mt-4"></div>
         </div>
 
-        <div className="row container-fluid mt-0">
+        <div className="row container-fluid mt-0 card-scrollprontuario">
           {pacienteSelecionado ? (
             <PacienteCardLista
               id={id}

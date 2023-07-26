@@ -25,4 +25,7 @@
     justify-content: space-evenly !important;
 }
 
-
+.card-scrollprontuario {
+    height: 568px !important;
+    overflow-y: scroll;
+}
