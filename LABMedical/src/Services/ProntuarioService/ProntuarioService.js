@@ -1,7 +1,26 @@
-export async function ProntuarioService(pacienteId) {
-    const response = await fetch(`http://localhost:3000/pacientes/${pacienteId}`);
-    if (!response.ok) {
-      throw new Error('Não foi possível obter os dados do paciente.');
+export async function ProntuarioService(query) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/pacientes?query=${query}`
+    );
+    const data = await response.json();
+
+    if (data.length === 0) {
+      alert("Paciente não encontrado.");
+    } else {
+      const pacienteEncontrado = data.find(
+        (paciente) => paciente.nome.toLowerCase() === query.toLowerCase()
+      );
+
+      if (pacienteEncontrado) {
+        // Retorne o paciente encontrado ou faça algo com ele aqui
+        return pacienteEncontrado;
+      } else {
+        alert("Paciente não encontrado.");
+      }
     }
-    return response.json();
+  } catch (error) {
+    console.error("Erro ao buscar pacientes:", error);
+    throw new Error("Erro ao buscar pacientes.");
   }
+}
