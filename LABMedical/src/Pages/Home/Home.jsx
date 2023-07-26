@@ -17,7 +17,7 @@ function Home() {
   const [pacientes, setPacientes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [originalPacientes, setOriginalPacientes] = useState([]);
-  const [pacienteSelecionado, setPacienteSelecionado] = useState(null);
+  const [pacienteSelecionado, setPacienteSelecionado] = useState([]);
 
   const usuarios = {
     id: 1,
@@ -57,7 +57,7 @@ function Home() {
   }, []);
 
   const handlePacienteSelect = (paciente) => {
-    setPacienteSelecionado(paciente);
+    setPacienteSelecionado(paciente.id);
   };
 
   return (
@@ -120,6 +120,7 @@ function Home() {
         {pacientes.map((paciente) => (
           <CardPaciente
             className="card_paciente"
+            id={paciente.id}
             key={paciente.id}
             nome={paciente.nome}
             dataNascimento={paciente.dataNascimento} // Passa a data de nascimento

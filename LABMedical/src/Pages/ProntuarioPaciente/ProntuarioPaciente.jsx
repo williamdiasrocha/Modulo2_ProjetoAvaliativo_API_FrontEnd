@@ -6,26 +6,29 @@ import { useParams } from "react-router-dom";
 
 function ProntuarioPaciente() {
   const { isLoggedIn } = useContext(AuthContext);
+
+
   const usuarios = {
     id: 1,
     nome: "Nome de Usuário",
   };
 
-  const { pacienteId } = useParams();
-  const [paciente, setPaciente] = useState(null);
+  const { id } = useParams();
+  const [paciente, setPaciente] = useState();
   const [consultas, setConsultas] = useState([]);
   const [exames, setExames] = useState([]);
 
   useEffect(() => {
+    
     // Simulando a obtenção dos dados do paciente com o ID 1 (pode ser alterado conforme a lógica real)
-    ProntuarioService(pacienteId)
+    ProntuarioService(id )
       .then((data) => {
         setPaciente(data);
         setConsultas(data.consultas);
         setExames(data.exames);
       })
       .catch((error) => console.error("Error fetching patient data:", error));
-  }, [pacienteId]);
+  }, [id ]);
 
   const renderContent = () => {
     if (!isLoggedIn) {
@@ -40,18 +43,8 @@ function ProntuarioPaciente() {
             <h4>Nome do Paciente: {paciente.nome}</h4>
             <h5>Convênio: {paciente.convenio}</h5>
             <h5>Contato de Emergência: {paciente.contatoEmergencia}</h5>
-            <h5>Alergias:</h5>
-            <ul>
-              {paciente.alergias.map((alergia) => (
-                <li key={alergia}>{alergia}</li>
-              ))}
-            </ul>
-            <h5>Cuidados Específicos:</h5>
-            <ul>
-              {paciente.cuidadosEspecificos.map((cuidado) => (
-                <li key={cuidado}>{cuidado}</li>
-              ))}
-            </ul>
+            <h5>Alergias: {paciente.alergias}</h5>
+            <h5>Cuidados Específicos: {paciente.cuidadosEspecificos}</h5>
           </div>
         )}
 

@@ -1,11 +1,10 @@
-// ListagemProntuario.jsx
-
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext.jsx";
 import Toolbar from "../../Components/OthersComponents/Toolbar/Toolbar.jsx";
 import "./ListagemProntuarios.css";
 import PacienteCardLista from "../../Components/HomeComponents/PacienteCardLista/PacienteCardLista.jsx";
 import PacienteSearch from "../CadastrarConsulta/PacienteSearch.jsx";
+import { useParams } from "react-router-dom";
 
 function ListagemProntuario() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -13,7 +12,7 @@ function ListagemProntuario() {
     id: 1,
     nome: "Nome de Usuário",
   };
-
+  const { id } = useParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [pacientes, setPacientes] = useState([]);
   const [pacienteSelecionado, setPacienteSelecionado] = useState(null);
@@ -25,12 +24,16 @@ function ListagemProntuario() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const handleSearch = (event) => {
+  const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const handlePacienteSelect = (pacienteEncontrado) => {
-    setPacienteSelecionado(pacienteEncontrado);
+  const handleSearchClick = () => {
+    const pacientepacienteSelecionado = pacientes.find(
+      (paciente) => paciente.nome.toLowerCase() === searchTerm.toLowerCase()
+    );
+
+    setPacienteSelecionado(pacientepacienteSelecionado);
   };
 
   const renderContent = () => {
@@ -43,51 +46,36 @@ function ListagemProntuario() {
         <Toolbar pageTitle="LISTAGEM DE PRONTUÁRIO" usuarios={usuarios} />
         <PacienteSearch
           searchTerm={searchTerm}
-          onSearchChange={handleSearch}
-          onPacienteSelect={handlePacienteSelect}
+          onSearchChange={handleSearchChange}
+          onSearchClick={handleSearchClick}
         />
-        {pacienteSelecionado ? (
-          <>
-            <div className="row mb-0 cabecalho text-center">
-              <div className="col-4 mt-4">
-                <h5>REGISTRO</h5>
-              </div>
-              <div className="col-3 mt-4">
-                <h5>NOME DO PACIENTE</h5>
-              </div>
-              <div className="col-3 mt-4">
-                <h5>CONVÊNIO</h5>
-              </div>
-              <div className="col-1 mt-4"></div>
-            </div>
-            <div className="row container-fluid mt-0">
-              <PacienteCardLista
-                key={pacienteSelecionado.id}
-                paciente={pacienteSelecionado}
-              />
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="row mb-0 cabecalho text-center">
-              <div className="col-4 mt-4">
-                <h5>REGISTRO</h5>
-              </div>
-              <div className="col-3 mt-4">
-                <h5>NOME DO PACIENTE</h5>
-              </div>
-              <div className="col-3 mt-4">
-                <h5>CONVÊNIO</h5>
-              </div>
-              <div className="col-1 mt-4"></div>
-            </div>
-            <div className="row container-fluid mt-0">
-              {pacientes.map((paciente) => (
-                <PacienteCardLista key={paciente.id} paciente={paciente} />
-              ))}
-            </div>
-          </>
-        )}
+
+        <div className="row mb-0 cabecalho text-center">
+          <div className="col-4 mt-4">
+            <h5>REGISTRO</h5>
+          </div>
+          <div className="col-3 mt-4">
+            <h5>NOME DO PACIENTE</h5>
+          </div>
+          <div className="col-3 mt-4">
+            <h5>CONVÊNIO</h5>
+          </div>
+          <div className="col-1 mt-4"></div>
+        </div>
+
+        <div className="row container-fluid mt-0">
+          {pacienteSelecionado ? (
+            <PacienteCardLista
+              id={id}
+              key={pacienteSelecionado.id}
+              paciente={pacienteSelecionado}
+            />
+          ) : (
+            pacientes.map((paciente) => (
+              <PacienteCardLista id={paciente.id} key={paciente.id} paciente={paciente} />
+            ))
+          )}
+        </div>
       </div>
     );
   };
