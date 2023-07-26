@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 function ProntuarioPaciente() {
   const { isLoggedIn } = useContext(AuthContext);
 
-
   const usuarios = {
     id: 1,
     nome: "Nome de Usuário",
@@ -19,16 +18,15 @@ function ProntuarioPaciente() {
   const [exames, setExames] = useState([]);
 
   useEffect(() => {
-    
     // Simulando a obtenção dos dados do paciente com o ID 1 (pode ser alterado conforme a lógica real)
-    ProntuarioService(id )
+    ProntuarioService(id)
       .then((data) => {
         setPaciente(data);
         setConsultas(data.consultas);
         setExames(data.exames);
       })
       .catch((error) => console.error("Error fetching patient data:", error));
-  }, [id ]);
+  }, [id]);
 
   const renderContent = () => {
     if (!isLoggedIn) {
@@ -39,49 +37,63 @@ function ProntuarioPaciente() {
       <div className="row container-fluid">
         <Toolbar pageTitle="PRONTUÁRIO DE PACIENTE" usuarios={usuarios} />
         {paciente && (
-          <div className="col-12">
-            <h4>Nome do Paciente: {paciente.nome}</h4>
-            <h5>Convênio: {paciente.convenio}</h5>
-            <h5>Contato de Emergência: {paciente.contatoEmergencia}</h5>
+          <div className="col-12 text-start mt-4">
+            <h2>Paciente {paciente.nome}</h2>
+            <h5>Convênio: {paciente.plano}</h5>
             <h5>Alergias: {paciente.alergias}</h5>
-            <h5>Cuidados Específicos: {paciente.cuidadosEspecificos}</h5>
           </div>
         )}
 
-        <div className="col-12">
-          <h3>Histórico de Consultas:</h3>
-          <ul>
-            {consultas.map((consulta) => (
-              <li key={consulta.id}>
-                <h5>Motivo: {consulta.motivo}</h5>
-                <p>Data e Hora: {consulta.dataHora}</p>
-                <button onClick={() => handleEditarConsulta(consulta)}>
-                  Editar
-                </button>
-                <button onClick={() => handleDeletarConsulta(consulta.id)}>
-                  Deletar
-                </button>
-              </li>
-            ))}
-          </ul>
+        <div className="col-12 text-end mt-4">
+          <div className="row">
+            <div className="col-2">
+              <h1>1</h1>
+            </div>
+            <div className="col-10 text-start">
+              <h3>Consultas</h3>
+              <ul>
+                {consultas.map((consulta) => (
+                  <li key={consulta.id} className="mt-4">
+                    <h5>Motivo: {consulta.motivo}</h5>
+                    <p>Data e Hora: {consulta.dataHora}</p>
+                    <button onClick={() => handleEditarConsulta(consulta)}>
+                      Editar
+                    </button>
+                    <button onClick={() => handleDeletarConsulta(consulta.id)}>
+                      Deletar
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <div className="col-12">
-          <h3>Histórico de Exames:</h3>
-          <ul>
-            {exames.map((exame) => (
-              <li key={exame.id}>
-                <h5>Nome do Exame: {exame.nomeExame}</h5>
-                <p>Laboratório: {exame.laboratorio}</p>
-                <p>Data e Hora: {exame.dataHora}</p>
-                <p>URL do Documento: {exame.urlDocumento}</p>
-                <button onClick={() => handleEditarExame(exame)}>Editar</button>
-                <button onClick={() => handleDeletarExame(exame.id)}>
-                  Deletar
-                </button>
-              </li>
-            ))}
-          </ul>
+        <div className="col-12 text-end mt-3">
+          <div className="row">
+            <div className="col-2">
+            <h1>2</h1>
+            </div>
+            <div className="col-10 text-start">
+            <h3>Exames</h3>
+            <ul>
+              {exames.map((exame) => (
+                <li key={exame.id} className="mt-4">
+                  <h5>Nome do Exame: {exame.nomeExame}</h5>
+                  <p className="mb-0">Laboratório: {exame.laboratorio}</p>
+                  <p className="mb-0">Data e Hora: {exame.dataHora}</p>
+                  <p>URL do Documento: {exame.urlDocumento}</p>
+                  <button onClick={() => handleEditarExame(exame)}>
+                    Editar
+                  </button>
+                  <button onClick={() => handleDeletarExame(exame.id)}>
+                    Deletar
+                  </button>
+                </li>
+              ))}
+            </ul>
+            </div>
+          </div>
         </div>
       </div>
     );
