@@ -4,14 +4,13 @@ import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.css";
 import { AppContextProvider, AuthProvider } from "./Context/AuthContext.jsx";
 
-const paginaAtual = localStorage.getItem("paginaAtual") || "/home";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+ 
     <AuthProvider>
       <AppContextProvider>
-        <App paginaAtual={paginaAtual} />
+        <App />
       </AppContextProvider>
     </AuthProvider>
-  </React.StrictMode>
+  
 );
