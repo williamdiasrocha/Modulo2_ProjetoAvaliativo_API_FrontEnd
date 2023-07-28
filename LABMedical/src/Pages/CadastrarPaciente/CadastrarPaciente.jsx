@@ -3,23 +3,12 @@ import { AuthContext } from "../../Context/AuthContext";
 import Toolbar from "../../Components/OthersComponents/Toolbar/Toolbar";
 import { Button, Form } from "react-bootstrap";
 import InputMask from "react-input-mask";
-import './CadastrarPaciente.css'
-
-
-// Função fictícia para simular o cadastro do paciente no servidor
-async function cadastrarPaciente(pacienteData) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ success: true });
-    }, 1000);
-  });
-}
+import "./CadastrarPaciente.css";
 
 function CadastrarPaciente() {
   const { isLoggedIn } = useContext(AuthContext);
 
   const [isEditing, setIsEditing] = useState(false);
-  
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -72,6 +61,8 @@ function CadastrarPaciente() {
     complemento: "",
     bairro: "",
     pontoReferencia: "",
+    consultas: [], // Array vazio para armazenar as consultas do paciente
+    exames: [], // Array vazio para armazenar os exames do paciente
   });
 
   const [showModal, setShowModal] = useState(false);
@@ -134,6 +125,8 @@ function CadastrarPaciente() {
         complemento: "",
         bairro: "",
         pontoReferencia: "",
+        consultas: [], // Limpar o array de consultas
+        exames: [], // Limpar o array de exames
       });
 
       // Exemplo de mensagem de sucesso (você pode tratar isso de acordo com a sua UI)
@@ -146,7 +139,7 @@ function CadastrarPaciente() {
     }
   };
 
-  const handleCEPChange = async (e) => {
+  const handleCEPBlur = async (e) => {
     const cep = e.target.value.replace(/\D/g, "");
     if (cep.length === 8) {
       try {
@@ -176,43 +169,47 @@ function CadastrarPaciente() {
     nome: "Nome de Usuário",
   };
 
+
   return (
-    
-      
-      <div className="col-9">
-        {isLoggedIn && (
-          <Toolbar pageTitle="CADASTRO DE PACIENTE" usuarios={usuarios} />
-        )}
+    <div className="col-9">
+      {isLoggedIn && (
+        <Toolbar pageTitle="CADASTRO DE PACIENTE" usuarios={usuarios} />
+      )}
 
-        <div className="container">
-          <h3 className="text-start mt-2 mb-1">
-            Preencha os campos para cadastrar
-          </h3>
+      <div className="container-fluid row">
+        <h3 className="text-start mt-2 mb-1">
+          Preencha os campos para cadastrar
+        </h3>
 
-          
-          <Form className="text-start" onSubmit={handleSubmit}>
-          
-          <header className="container-fluid d-flex row mb-4">
+        <Form className="text-start" onSubmit={handleSubmit}>
+          <header className="container-fluid d-flex row mb-1">
             <div className="col-12 text-end d-flex justify-content-end">
               <h5 className="text-start">Identificação</h5>
               <div className="container-fluid justify-content-end text-align-center">
-              <Button disabled={isEditing} type="button" onClick={handleDeleteClick} className="btn btn-danger btn-delete">
-              Deletar
-            </Button>
-            <Button disabled={isEditing} type="submit">
-              Salvar
-            </Button>
+                <Button
+                  disabled={isEditing}
+                  type="button"
+                  onClick={handleDeleteClick}
+                  className="btn btn-danger btn-delete"
+                >
+                  Deletar
+                </Button>
+                <Button disabled={isEditing} type="submit">
+                  Salvar
+                </Button>
               </div>
             </div>
           </header>
 
-            <div className="row container-fluid">
+          <div className="row container-fluid">
             <div className="col-6">
-              <Form.Label className="mb-0" htmlFor="nomeCompleto">Nome Completo:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="nome">
+                Nome Completo:
+              </Form.Label>
               <Form.Control
                 type="text"
-                id="nomeCompleto"
-                name="nomeCompleto"
+                id="nome"
+                name="nome"
                 value={formData.nome}
                 onChange={handleChange}
                 required
@@ -222,7 +219,9 @@ function CadastrarPaciente() {
             </div>
 
             <div className="col-3">
-              <Form.Label className="mb-0" htmlFor="genero">Gênero:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="genero">
+                Gênero:
+              </Form.Label>
               <Form.Control
                 as="select"
                 id="genero"
@@ -251,24 +250,26 @@ function CadastrarPaciente() {
                 required
               />
             </div>
-            </div>
+          </div>
 
-            <div className="row container-fluid">
+          <div className="row container-fluid">
             <div className="col-4">
-              <Form.Label className="mb-0" htmlFor="cpf">CPF:</Form.Label>
-              <InputMask
-                mask="999.999.999-99"
+              <Form.Label className="mb-0" htmlFor="cpf">
+                CPF:
+              </Form.Label>
+              <Form.Control
+                mask="000.000.000-00"
+                type="text"
                 id="cpf"
                 name="cpf"
                 value={formData.cpf}
                 onChange={handleChange}
                 required
               >
-                {(inputProps) => <Form.Control {...inputProps} />}
-              </InputMask>
+              </Form.Control>
             </div>
 
-            <div  className="col-4">
+            <div className="col-4">
               <Form.Label className="mb-0" htmlFor="rgOrgaoExpedidor">
                 RG com órgão expedidor:
               </Form.Label>
@@ -283,8 +284,10 @@ function CadastrarPaciente() {
               />
             </div>
 
-            <div  className="col-4">
-              <Form.Label className="mb-0" htmlFor="estadoCivil">Estado Civil:</Form.Label>
+            <div className="col-4">
+              <Form.Label className="mb-0" htmlFor="estadoCivil">
+                Estado Civil:
+              </Form.Label>
               <Form.Control
                 as="select"
                 id="estadoCivil"
@@ -300,15 +303,17 @@ function CadastrarPaciente() {
                 <option value="viuvo">Viúvo</option>
               </Form.Control>
             </div>
-            </div>
+          </div>
 
-            <div className="row container-fluid">
+          <div className="row container-fluid">
             <div className="col-4">
-              <Form.Label className="mb-0" htmlFor="telefone">Telefone:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="tel">
+                Telefone:
+              </Form.Label>
               <InputMask
                 mask="(99) 9 9999-9999"
-                id="telefone"
-                name="telefone"
+                id="tel"
+                name="tel"
                 value={formData.tel}
                 onChange={handleChange}
                 required
@@ -318,7 +323,9 @@ function CadastrarPaciente() {
             </div>
 
             <div className="col-4">
-              <Form.Label className="mb-0" htmlFor="email">E-mail:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="email">
+                E-mail:
+              </Form.Label>
               <Form.Control
                 type="email"
                 id="email"
@@ -331,7 +338,9 @@ function CadastrarPaciente() {
             </div>
 
             <div className="col-4">
-              <Form.Label className="mb-0" htmlFor="naturalidade">Naturalidade:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="naturalidade">
+                Naturalidade:
+              </Form.Label>
               <Form.Control
                 type="text"
                 id="naturalidade"
@@ -343,20 +352,21 @@ function CadastrarPaciente() {
                 maxLength="64"
               />
             </div>
-            </div>
+          </div>
 
-            <div className="container-fluid text-start h5margin">
+          <div className="container-fluid text-start h5">
             <h5 className="container-fluid text-start mt-1 ">Convênio</h5>
-            </div>
-            
-            <div className="row container-fluid">
+          </div>
+
+          <div className="row container-fluid">
             <div className="col-4">
-            
-              <Form.Label className="mb-0" htmlFor="convenio">Convênio:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="plano">
+                Convênio:
+              </Form.Label>
               <Form.Control
                 type="text"
-                id="convenio"
-                name="convenio"
+                id="plano"
+                name="plano"
                 value={formData.plano}
                 onChange={handleChange}
               />
@@ -387,27 +397,34 @@ function CadastrarPaciente() {
                 onChange={handleChange}
               />
             </div>
-            </div>
+          </div>
 
-            <div className="container-fluid text-start mt-1">
-            <h5 className="container-fluid text-start h5margin">Dados de Endereço</h5></div>
-            <div className="row container-fluid">
-              <div className="col-4">
-              <Form.Label className="mb-0" htmlFor="cep">CEP:</Form.Label>
-              <InputMask
-                mask="99999-999"
+          <div className="container-fluid text-start mt-1">
+            <h5 className="container-fluid text-start h5 mt-1">
+              Dados de Endereço
+            </h5>
+          </div>
+          <div className="row container-fluid">
+            <div className="col-4">
+              <Form.Label className="mb-0" htmlFor="cep">
+                CEP:
+              </Form.Label>
+              <Form.Control
+                type="text"
                 id="cep"
                 name="cep"
                 value={formData.cep}
-                onChange={handleCEPChange}
+                onChange={handleChange}
+                onBlur={handleCEPBlur} // Adicionando o evento onBlur para acionar a pesquisa quando o usuário sair do campo
                 required
-              >
-                {(inputProps) => <Form.Control {...inputProps} />}
-              </InputMask>
+                autoComplete="off"
+              />
             </div>
 
             <div className="col-6">
-              <Form.Label className="mb-0" htmlFor="cidade">Cidade:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="cidade">
+                Cidade:
+              </Form.Label>
               <Form.Control
                 type="text"
                 id="cidade"
@@ -419,7 +436,9 @@ function CadastrarPaciente() {
             </div>
 
             <div className="col-2">
-              <Form.Label className="mb-0" htmlFor="estado">Estado:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="estado">
+                Estado:
+              </Form.Label>
               <Form.Control
                 type="text"
                 id="estado"
@@ -430,11 +449,13 @@ function CadastrarPaciente() {
                 maxLength="2"
               />
             </div>
-            </div>
+          </div>
 
-            <div className="row container-fluid">
+          <div className="row container-fluid">
             <div className="col-10">
-              <Form.Label className="mb-0" htmlFor="logradouro">Logradouro:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="logradouro">
+                Logradouro:
+              </Form.Label>
               <Form.Control
                 type="text"
                 id="logradouro"
@@ -445,7 +466,9 @@ function CadastrarPaciente() {
             </div>
 
             <div className="col-2">
-              <Form.Label className="mb-0" htmlFor="numero">Número:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="numero">
+                Número:
+              </Form.Label>
               <Form.Control
                 type="text"
                 id="numero"
@@ -454,11 +477,13 @@ function CadastrarPaciente() {
                 onChange={handleChange}
               />
             </div>
-            </div>
+          </div>
 
-            <div className="row container-fluid">
+          <div className="row container-fluid">
             <div className="col-4">
-              <Form.Label className="mb-0" htmlFor="complemento">Complemento:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="complemento">
+                Complemento:
+              </Form.Label>
               <Form.Control
                 type="text"
                 id="complemento"
@@ -469,7 +494,9 @@ function CadastrarPaciente() {
             </div>
 
             <div className="col-4">
-              <Form.Label className="mb-0" htmlFor="bairro">Bairro:</Form.Label>
+              <Form.Label className="mb-0" htmlFor="bairro">
+                Bairro:
+              </Form.Label>
               <Form.Control
                 type="text"
                 id="bairro"
@@ -491,13 +518,10 @@ function CadastrarPaciente() {
                 onChange={handleChange}
               />
             </div>
-            </div>
-
-            
-          </Form>
-        </div>
+          </div>
+        </Form>
       </div>
-    
+    </div>
   );
 }
 
