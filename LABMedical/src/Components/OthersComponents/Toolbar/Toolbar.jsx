@@ -1,29 +1,25 @@
-import React, { useState, useEffect, useContext } from 'react';
-import '../Toolbar/Toolbar.css'
-import { AuthContext } from '../../../Context/AuthContext';
+import React, { useState, useEffect, useContext } from "react";
+import * as Styled from "./Toolbar.style.jsx";
+import { AuthContext } from "../../../Context/AuthContext";
+import { HeaderContext } from '../../../Context/HeaderContext.jsx';
 
-function Toolbar({ pageTitle, usuarios }) {
+function Toolbar() {
+  const { data } = useContext(HeaderContext);
+  const { auth } = useContext(AuthContext);
 
-    const isLoginPage = pageTitle === 'Login';
-    const { isLoggedIn, user } = useContext(AuthContext);
-    const { logout } = useContext(AuthContext);
-    
-    return (
-        <nav className="navbar" id='navbarApi'>
-            <div className="container-fluid">
-                <span className="navbar h6" id='spanNav'>{pageTitle}</span>
-                {!isLoginPage && user && (
-                    <div className='user-menu'>
-                        <div className='user-info'>
-                            <span className='user-name'>{user.name}</span>
-                            <img className='user-photo' src='../src/assets/user.png' alt='User' />
-                        </div>
-                        <button onClick={logout} className='btn btn-danger btn-sair'>Sair</button>
-                    </div>
-                )}
-            </div>
-        </nav>
-    )
+  return (
+    <Styled.Container>
+      <Styled.TxtHeader id="titulo">{data.titulo}</Styled.TxtHeader>
+
+      <Styled.UserHeader>
+        <Styled.TxtUser>{auth.user.email}</Styled.TxtUser>
+        <img
+          alt="Imagem do usuário"
+          src="../../../public/images/user.png"
+        />{" "}
+      </Styled.UserHeader>
+    </Styled.Container>
+  );
 }
 
 export default Toolbar;

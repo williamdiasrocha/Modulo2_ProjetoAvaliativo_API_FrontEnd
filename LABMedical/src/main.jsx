@@ -2,15 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.css";
-import { AppContextProvider, AuthProvider } from "./Context/AuthContext.jsx";
-
+import { AuthProvider } from "./Context/AuthContext.jsx";
+import { GlobalStyle } from "./Global.Style.jsx";
+import { HeaderProvider } from "./Context/HeaderContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
- 
-    <AuthProvider>
-      <AppContextProvider>
+  <React.StrictMode>
+    <GlobalStyle />
+    <HeaderProvider>
+      <AuthProvider>
         <App />
-      </AppContextProvider>
-    </AuthProvider>
-  
+      </AuthProvider>
+    </HeaderProvider>
+  </React.StrictMode>
 );

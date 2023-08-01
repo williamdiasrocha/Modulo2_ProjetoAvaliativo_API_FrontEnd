@@ -1,86 +1,30 @@
-import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../Context/AuthContext.jsx";
-import Toolbar from "../../Components/OthersComponents/Toolbar/Toolbar.jsx";
-import "./ListagemProntuarios.css";
-import PacienteCardLista from "../../Components/HomeComponents/PacienteCardLista/PacienteCardLista.jsx";
-import PacienteSearch from "../CadastrarConsulta/PacienteSearch.jsx";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import * as Styled from './ListagemProntuarios.style';
+import { HeaderContext } from "../../Context/HeaderContext";
+import { InputPageProntuarios } from "../../Components/InputPageProntuarios/InputPageProntuarios";
 
-function ListagemProntuario() {
-  const { isLoggedIn } = useContext(AuthContext);
-  const usuarios = {
-    id: 1,
-    nome: "Nome de Usuário",
-  };
-  const { id } = useParams();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [pacientes, setPacientes] = useState([]);
-  const [pacienteSelecionado, setPacienteSelecionado] = useState(null);
 
+export const ListagemProntuariosPage = () => {
+  const { setData } = useContext(HeaderContext)
   useEffect(() => {
-    fetch("/db.json")
-      .then((response) => response.json())
-      .then((data) => setPacientes(data.pacientes))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+    setData({       
+      titulo: 'LISTA DE PRONTUÁRIOS'}) 
+      
+    }, []);
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+    const render = () => {
+      return(
 
-  const handleSearchClick = () => {
-    const pacientepacienteSelecionado = pacientes.find(
-      (paciente) => paciente.nome.toLowerCase() === searchTerm.toLowerCase()
-    );
+        <>
+          <Styled.ContainerConsultaPage>
+            <div>
+              <InputPageProntuarios />
+              
+            </div>
+          </Styled.ContainerConsultaPage>
+        </>
 
-    setPacienteSelecionado(pacientepacienteSelecionado);
-  };
-
-  const renderContent = () => {
-    if (!isLoggedIn) {
-      return null;
-    }
-
-    return (
-      <div className="row container-fluid">
-        <Toolbar pageTitle="LISTAGEM DE PRONTUÁRIO" usuarios={usuarios} />
-        <PacienteSearch
-          searchTerm={searchTerm}
-          onSearchChange={handleSearchChange}
-          onSearchClick={handleSearchClick}
-        />
-
-        <div className="row mb-0 cabecalho text-center">
-          <div className="col-4 mt-4">
-            <h5>REGISTRO</h5>
-          </div>
-          <div className="col-3 mt-4">
-            <h5>NOME DO PACIENTE</h5>
-          </div>
-          <div className="col-3 mt-4">
-            <h5>CONVÊNIO</h5>
-          </div>
-          <div className="col-1 mt-4"></div>
-        </div>
-
-        <div className="row container-fluid mt-0 card-scrollprontuario">
-          {pacienteSelecionado ? (
-            <PacienteCardLista
-              id={id}
-              key={pacienteSelecionado.id}
-              paciente={pacienteSelecionado}
-            />
-          ) : (
-            pacientes.map((paciente) => (
-              <PacienteCardLista id={paciente.id} key={paciente.id} paciente={paciente} />
-            ))
-          )}
-        </div>
-      </div>
-    );
-  };
-
-  return <div className="col-9">{renderContent()}</div>;
+    )}
+  
+    return render();
 }
-
-export default ListagemProntuario;
