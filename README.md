@@ -12,20 +12,24 @@ Projeto Final do Módulo 02 do curso de Desenvolvimento Web FullStack, ministrad
 
 <h2>Tecnologias:</h2>
 
-| Linguagem   | Documentação                                           |
-| ----------- | ------------------------------------------------------ |
-| React JS    | [https://legacy.reactjs.org/docs/getting-started.html] |
-| Vite        | [https://vitejs.dev/guide/]                            |
-| JSON Server | [https://www.npmjs.com/package/json-server]            |
+| Linguagem            | Documentação                                                      |
+| -------------------- | ----------------------------------------------------------------- |
+| JavaScript           | [https://www.javascript.com/] |
 
-| Framework / Plugins | Documentação                                                      |
-| ------------------- | ----------------------------------------------------------------- |
-| Ant Design          | [https://ant.design/docs/react/introduce]                         |
-| Bootstrap           | [https://getbootstrap.com/docs/5.3/getting-started/introduction/] |
-| Date-fns            | [https://date-fns.org/docs/Getting-Started]                       |
-| Node-diacritics     | [https://www.npmjs.com/package/diacritics]                        |
-| React Hook Form     | [https://www.react-hook-form.com/get-started]                     |
-| Styled-Components   | [https://styled-components.com/docs]                              |
+| Framework / Plugin   | Documentação                                                      |
+| -------------------- | ----------------------------------------------------------------- |
+| React JS             | [https://legacy.reactjs.org/docs/getting-started.html]            |
+| Vite                 | [https://vitejs.dev/guide/]                                       |
+| JSON Server          | [https://www.npmjs.com/package/json-server]                       |
+
+| Bibliotecas          | Documentação                                                      |
+| -------------------- | ----------------------------------------------------------------- |
+| Ant Design           | [https://ant.design/docs/react/introduce]                         |
+| Bootstrap            | [https://getbootstrap.com/docs/5.3/getting-started/introduction/] |
+| Date-fns             | [https://date-fns.org/docs/Getting-Started]                       |
+| Node-diacritics      | [https://www.npmjs.com/package/diacritics]                        |
+| React Hook Form      | [https://www.react-hook-form.com/get-started]                     |
+| Styled-Components    | [https://styled-components.com/docs]                              |
 
 <p>_________________</p>
 
