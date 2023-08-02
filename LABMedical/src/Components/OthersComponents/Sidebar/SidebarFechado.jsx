@@ -11,18 +11,18 @@ const SidebarFechado = () => {
   return (
     <>
             <Styled.MenuFechado>
-
+            
             <Styled.DivCabecalho>
             <Styled.MenuLogoFechado src={heart} />
 
             </Styled.DivCabecalho>
-
+            <Styled.MenuSetor></Styled.MenuSetor>
             <MenuItemFechado Icon={ImHome}  To='/' />
             <MenuItemFechado Icon={ImCross}  To='/login' />
-
+            <Styled.MenuSetor></Styled.MenuSetor>
             <MenuItemFechado Icon={ImClipboard}  To='/paciente' />
             <MenuItemFechado Icon={ImPlus}  To='/listaProntuarios'  />
-
+            <Styled.MenuSetor></Styled.MenuSetor>
             <MenuItemFechado Icon={ImPlus}  To='/consulta' />
             <MenuItemFechado Icon={ ImClipboard }  To='/exame' />
 

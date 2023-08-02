@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
   height: 3rem;
   justify-content: space-between;
-  background-color: #447cfb; 
+  background-color: #0f4571; 
 
   color: white;
 `;

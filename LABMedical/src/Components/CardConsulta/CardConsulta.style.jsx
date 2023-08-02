@@ -8,11 +8,14 @@ export const RenderResultados = styled.div`
   font-weight: bold;
   margin: 0 auto;
   padding: 2%;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px gray; 
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #dbdbdb;
+  margin-top: 5px; 
   
   p {
     margin: 1% 2% 0% 2%;
-    background-color: #ebf7f9;
+    background-color: #c0c0c0;
+    
   };
 `;

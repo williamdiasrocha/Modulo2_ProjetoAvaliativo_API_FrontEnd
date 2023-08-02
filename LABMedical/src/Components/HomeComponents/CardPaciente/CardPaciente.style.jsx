@@ -6,7 +6,7 @@ export const CardPacienteContainer = styled.div`
     justify-content: space-around;
     width: 16vw;
     height: 32vh;
-    margin: 4vw 0;
+    margin: 2vw 0;
 `
 
 export const RenderCardPaciente = styled.div`

@@ -26,7 +26,7 @@ export const ProntuarioPage = () => {
 
   useEffect(() => {
     setData({       
-      titulo: 'LISTAGEM DE PRONTUÁRIOS',}) 
+      titulo: 'PRONTUÁRIO DO PACIENTE',}) 
       const location = pathname.split('/')
       const pacienteId = location[location.length - 1]
       const consultaId = location[location.consulta]

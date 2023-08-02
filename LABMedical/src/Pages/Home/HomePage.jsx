@@ -9,14 +9,9 @@ import { InputPage } from '../../Components/InputPage/InputPage';
 import EstatisticasSistema from '../../Components/InfoSistema/InfoSistema';
 
 
-
-
-
 export const HomePage = () => {
   
-  const [listaPacientes, setListaPacientes] = useState([]);
-
-
+  
   
   const { setData } = useContext(HeaderContext)
   useEffect(() => {
