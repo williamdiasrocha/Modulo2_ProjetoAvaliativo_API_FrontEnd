@@ -1,12 +1,12 @@
 
 Projeto Final do Módulo 02 do curso de Desenvolvimento Web FullStack, ministrado pelo Senai/SC e LAB365.
 
-<h1>Lab API Software - Sistema de Automação Médica</h1>
-<h3>WebAPI para Gerenciamento de Médicos, Enfermeiros e Pacientes</h3>
+<h1>LabMedical API - Sistema de Automação Médica</h1>
+<h3>WebAPI para Gerenciamento de Usuários, Pacientes, Consultas e Exames</h3>
 
 <h2>Sistema:</h2>
 
-<p>O LabAPI Software executa o gerenciamento dos cadastros de médicos, enfermeiros e pacientes através da insersão, busca e alteração no banco de dados. </p>
+<p>O LabAPI Software executa o gerenciamento dos cadastros de usuários, pacientes, consultas e exames através da insersão, busca e alteração no banco de dados. </p>
 <p>O LabAPI Software fornece o registro de atendimento dos médicos e a atualização do status do paciente quando atendido.</p>
 <p>_________________</p>
 
