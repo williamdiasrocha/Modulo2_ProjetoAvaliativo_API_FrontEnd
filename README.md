@@ -1,6 +1,5 @@
-# Modulo2_Projeto Avaliativo_API_FrontEnd
 
-Projeto Final do Módulo 02 do curso de Desenvolvimento Web FullStack, ministrado pelo Senai/SC em parceria com a LAB365.
+Projeto Final do Módulo 02 do curso de Desenvolvimento Web FullStack, ministrado pelo Senai/SC e LAB365.
 
 <h1>Lab API Software - Sistema de Automação Médica</h1>
 <h3>WebAPI para Gerenciamento de Médicos, Enfermeiros e Pacientes</h3>
