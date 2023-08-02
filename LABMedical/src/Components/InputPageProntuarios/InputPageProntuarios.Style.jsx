@@ -7,6 +7,7 @@ height: 7vw;
 border-radius: 10px;
 margin: 0 auto;
 
+
 .container-faq {
     display: flex;
     justify-content: center;
@@ -32,4 +33,5 @@ export const ContainerCards = styled.div`
     height: 100%;
     width: 100%;
     flex-wrap: wrap;
+    
 `

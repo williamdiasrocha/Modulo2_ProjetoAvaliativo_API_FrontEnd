@@ -15,7 +15,7 @@ export const HeaderProntuario = styled.div`
   align-items: column;
   width: 95%;
   height: auto;
-  color: white;
+  color: #0f4571;
   margin: 0 auto;
   border-radius: 5px;
   padding: 2%;
@@ -31,12 +31,16 @@ export const CorpoProntuario = styled.div`
   margin: 0 auto ;
   border-radius: 5px;
 
+  height: 535px;
+    overflow-y: scroll;
+
 `;
 
 export const Title = styled.h1`
   display: flex;
-  color: gray;
+  color: #0f4571;
   font-size: 2rem;
+  font-weight: 680;
   width: 100%;
   height: auto;
 `;
@@ -44,7 +48,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h1`
   display: flex;
   align-items: center;
-  color: #4682B4;
+  color: #0f4571;
   font-size: 2rem;
   width: 100%;
   height: auto;
@@ -57,16 +61,17 @@ export const SubTitle = styled.h1`
     align-items: center;
     width: 2.5rem;
     height: 2.5rem;
-    border: 4px solid #4682B4;
-    border-radius: 5px;
+    border: 3px solid #0f4571;
+    border-radius: 8px;
     margin-right: 1%;
     font-size: 1.5rem;
+    color: #0f4571;
   }
 `;
 
 export const Label = styled.legend`
   display: flex;
-  color: gray;
+  color: #0f4571;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;

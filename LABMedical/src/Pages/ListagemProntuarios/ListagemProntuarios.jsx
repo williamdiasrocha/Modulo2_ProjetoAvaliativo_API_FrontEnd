@@ -17,10 +17,10 @@ export const ListagemProntuariosPage = () => {
 
         <>
           <Styled.ContainerConsultaPage>
-            <div>
+            
               <InputPageProntuarios />
               
-            </div>
+            
           </Styled.ContainerConsultaPage>
         </>
 
