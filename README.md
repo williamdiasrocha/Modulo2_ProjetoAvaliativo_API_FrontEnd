@@ -6,8 +6,8 @@ Projeto Final do Módulo 02 do curso de Desenvolvimento Web FullStack, ministrad
 
 <h2>Sistema:</h2>
 
-<p>O LabAPI Software executa o gerenciamento dos cadastros de usuários, pacientes, consultas e exames através da insersão, busca e alteração no banco de dados. </p>
-<p>O LabAPI Software fornece o registro de atendimento dos médicos e a atualização do status do paciente quando atendido.</p>
+<p>O LabMedical API executa o gerenciamento dos cadastros de usuários, pacientes, consultas e exames através da insersão, busca e alteração no banco de dados. </p>
+<p>O LabMedical API fornece o registro de atendimento dos pacientes e o cadastro de consultas e exames do paciente quando atendido.</p>
 <p>_________________</p>
 
 <h2>Tecnologias:</h2>
